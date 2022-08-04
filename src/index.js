@@ -4,9 +4,31 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Styled components
+import styled, { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+    
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+`;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <GlobalStyle />
     <App />
   </React.StrictMode>
 );

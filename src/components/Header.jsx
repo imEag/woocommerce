@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
 const StyledHeader = styled.header`
     height: 10rem;
@@ -10,14 +11,29 @@ const StyledHeader = styled.header`
     font-size: ${props => props.theme.font_size.small};
     font-family: ${props => props.theme.font.primary};
     color:  ${props => props.theme.color.dark_blue};
+
+    & > svg#open {
+        cursor: pointer;
+        display: none;
+        height: 5rem;
+        width: 5rem;
+        display: ${props => props.mobile ? "none" : "inline-block"};
+    }
+
+    & > svg#close {
+        display: none;
+        display: ${props => props.mobile ? "inline-block" : "none"};
+    }
+    
 `;
 
 const LeftDiv = styled.div`
-    width: 45%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 4rem;
     flex-shrink: 1;
+    flex-basis: 3;
 
     &  svg {
         margin-top: .4rem;
@@ -34,6 +50,7 @@ const LeftDiv = styled.div`
         color:  ${props => props.theme.color.dark_blue};
         line-height: 21px;
     }
+
 `;
 
 const RightDiv = styled.div`
@@ -41,7 +58,8 @@ const RightDiv = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 3.8rem;
-    flex-shrink: 3;
+    flex-shrink: 2;
+    flex-basis: 5;
 
     &  a {
         color:  ${props => props.theme.color.dark_blue};
@@ -67,11 +85,19 @@ const RightDiv = styled.div`
     &  svg {
         cursor: pointer;
     }
+
+    
 `
 
 export const Header = () => {
+
+    const [mobileOpen, setMobileOpen] = useState(false);
+
+    useEffect(() => {
+    }, [])
+    
     return (
-        <StyledHeader>
+        <StyledHeader mobile={mobileOpen}>
             <LeftDiv>
                 <svg width="169" height="35" viewBox="0 0 169 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M5.31286 0H51.9101C54.859 0 57.2462 2.3872 57.2462 5.33609V23.1231C57.2462 26.072 54.859 28.4592 51.9101 28.4592H35.1997L37.4933 34.0761L27.4062 28.4592H5.33627C2.38737 28.4592 0.000170629 26.072 0.000170629 23.1231V5.33609C-0.0232333 2.4106 2.36397 0 5.31286 0Z" fill="#9B5C8F" />
@@ -95,6 +121,8 @@ export const Header = () => {
                     <path d="M15.7812 13.8344L12.6656 10.7188C12.525 10.5781 12.3344 10.5 12.1344 10.5H11.625C12.4875 9.39688 13 8.00937 13 6.5C13 2.90937 10.0906 0 6.5 0C2.90937 0 0 2.90937 0 6.5C0 10.0906 2.90937 13 6.5 13C8.00937 13 9.39688 12.4875 10.5 11.625V12.1344C10.5 12.3344 10.5781 12.525 10.7188 12.6656L13.8344 15.7812C14.1281 16.075 14.6031 16.075 14.8938 15.7812L15.7781 14.8969C16.0719 14.6031 16.0719 14.1281 15.7812 13.8344ZM6.5 10.5C4.29063 10.5 2.5 8.7125 2.5 6.5C2.5 4.29063 4.2875 2.5 6.5 2.5C8.70937 2.5 10.5 4.2875 10.5 6.5C10.5 8.70937 8.7125 10.5 6.5 10.5Z" fill="#272D4E" />
                 </svg>
             </RightDiv>
+            <svg id="open" xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 30 30" width="30px" height="30px"><path d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z" /></svg>
+            <svg id="close" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z" /></svg>
 
         </StyledHeader>
     );

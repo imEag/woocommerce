@@ -40,10 +40,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Hero></Hero>
-      <Features></Features>
-      <Section></Section>
       <Testimonials></Testimonials>
-      <Cta></Cta>
       <People></People>
       <Footer></Footer>
     </ThemeProvider>

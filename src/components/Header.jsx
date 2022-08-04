@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledHeader = styled.header`
     height: 10rem;
-    margin: 1.2rem 5.5rem;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,13 +12,12 @@ const StyledHeader = styled.header`
     color:  ${props => props.theme.color.dark_blue};
 `;
 
-const Left_div = styled.div`
-    
+const LeftDiv = styled.div`
     width: 45%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    flex-shrink: 1;
 
     &  svg {
         margin-top: .4rem;
@@ -37,11 +36,12 @@ const Left_div = styled.div`
     }
 `;
 
-const Right_div = styled.div`
+const RightDiv = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 3.8rem;
+    flex-shrink: 3;
 
     &  a {
         color:  ${props => props.theme.color.dark_blue};
@@ -55,8 +55,13 @@ const Right_div = styled.div`
         color: white;
         border: none;
         border-radius: .4rem;
-        padding: 1rem;
+        padding: 1.3rem 1.4rem;
         cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    & button:hover {
+        background-color: ${props => props.theme.color.dark_purple};
     }
     
     &  svg {
@@ -67,7 +72,7 @@ const Right_div = styled.div`
 export const Header = () => {
     return (
         <StyledHeader>
-            <Left_div>
+            <LeftDiv>
                 <svg width="169" height="35" viewBox="0 0 169 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M5.31286 0H51.9101C54.859 0 57.2462 2.3872 57.2462 5.33609V23.1231C57.2462 26.072 54.859 28.4592 51.9101 28.4592H35.1997L37.4933 34.0761L27.4062 28.4592H5.33627C2.38737 28.4592 0.000170629 26.072 0.000170629 23.1231V5.33609C-0.0232333 2.4106 2.36397 0 5.31286 0Z" fill="#9B5C8F" />
                     <path d="M2.85548 4.84449C3.18314 4.39982 3.67462 4.16578 4.32993 4.11897C5.52353 4.02535 6.20225 4.58705 6.36607 5.80405C7.0916 10.6955 7.88733 14.838 8.72987 18.2315L13.8553 8.4721C14.3234 7.58275 14.9085 7.11467 15.6106 7.06787C16.6404 6.99765 17.2723 7.65296 17.5297 9.0338C18.1148 12.1465 18.8638 14.7912 19.7531 17.0379C20.3616 11.0933 21.3914 6.81042 22.8424 4.16578C23.1935 3.51047 23.7084 3.18282 24.3871 3.13601C24.9254 3.0892 25.4169 3.25303 25.8616 3.60409C26.3062 3.95515 26.5403 4.39982 26.5871 4.93811C26.6105 5.35938 26.5403 5.71044 26.353 6.0615C25.4403 7.74658 24.6914 10.5785 24.0829 14.5103C23.4978 18.3252 23.2871 21.2975 23.4275 23.4272C23.4744 24.0123 23.3807 24.5272 23.1467 24.9719C22.8658 25.4868 22.4446 25.7676 21.9063 25.8144C21.2978 25.8612 20.6659 25.5804 20.0574 24.9485C17.8808 22.7251 16.1489 19.4017 14.8851 14.9784C13.3639 17.9741 12.2405 20.2209 11.5149 21.7187C10.1341 24.3634 8.96391 25.7208 7.98095 25.791C7.34904 25.8378 6.81075 25.2995 6.34267 24.1761C5.14907 21.1102 3.86185 15.189 2.48102 6.41256C2.41081 5.80406 2.52783 5.26576 2.85548 4.84449Z" fill="white" />
@@ -82,14 +87,14 @@ export const Header = () => {
                     <a href="#">Analyze</a>
                     <a href="#">Downloads</a>
                 </nav>
-            </Left_div>
-            <Right_div>
+            </LeftDiv>
+            <RightDiv>
                 <a href="#">Log In</a>
                 <button>Get Started</button>
                 <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15.7812 13.8344L12.6656 10.7188C12.525 10.5781 12.3344 10.5 12.1344 10.5H11.625C12.4875 9.39688 13 8.00937 13 6.5C13 2.90937 10.0906 0 6.5 0C2.90937 0 0 2.90937 0 6.5C0 10.0906 2.90937 13 6.5 13C8.00937 13 9.39688 12.4875 10.5 11.625V12.1344C10.5 12.3344 10.5781 12.525 10.7188 12.6656L13.8344 15.7812C14.1281 16.075 14.6031 16.075 14.8938 15.7812L15.7781 14.8969C16.0719 14.6031 16.0719 14.1281 15.7812 13.8344ZM6.5 10.5C4.29063 10.5 2.5 8.7125 2.5 6.5C2.5 4.29063 4.2875 2.5 6.5 2.5C8.70937 2.5 10.5 4.2875 10.5 6.5C10.5 8.70937 8.7125 10.5 6.5 10.5Z" fill="#272D4E" />
                 </svg>
-            </Right_div>
+            </RightDiv>
 
         </StyledHeader>
     );

@@ -3,7 +3,6 @@ import './App.css';
 
 import styled, { ThemeProvider } from 'styled-components';
 
-import { Header } from './components/Header';
 import { Hero } from './components/Hero_section';
 import { Features } from './components/Features_section';
 import { Section } from './components/Section';
@@ -19,7 +18,7 @@ const theme = {
   },
   color: {
     dark_blue: "#272D4E",
-    ligth_blue: "#EDF0FD",
+    ligth_blue: "#299EF3",
     blue: "#299EF3",
     gray: "#94A2B3",
     purple: "#7854F7",
@@ -40,7 +39,6 @@ const theme = {
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Header></Header>
       <Hero></Hero>
       <Features></Features>
       <Section></Section>

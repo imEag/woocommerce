@@ -3,6 +3,7 @@ import './App.css';
 
 import styled, { ThemeProvider } from 'styled-components';
 
+import { Header } from './components/Header';
 import { Hero } from './components/Hero_section';
 import { Features } from './components/Features_section';
 import { Section } from './components/Section';
@@ -24,12 +25,22 @@ const theme = {
     purple: "#7854F7",
     dark_purple: "#5F37EF",
     green: "#70C217",
+  },
+  font_size: {
+    tiny: "1.2rem",
+    small: "1.8rem",
+    medium: "2rem",
+    medium_bigger: "2.67rem",
+    big: "3.6rem",
+    bigger: "5.5rem",
+    extra: "8.5rem"
   }
 }
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <Header></Header>
       <Hero></Hero>
       <Features></Features>
       <Section></Section>

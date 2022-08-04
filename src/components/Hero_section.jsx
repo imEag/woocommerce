@@ -8,7 +8,6 @@ const StyledHero = styled.div`
 export const Hero = () => {
     return (
         <StyledHero>
-            
         </StyledHero>
     );
 };

@@ -23,6 +23,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
 
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
 `;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

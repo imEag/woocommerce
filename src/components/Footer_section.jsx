@@ -20,17 +20,32 @@ const StyledFooter = styled.div`
         gap: 14rem;
         border-bottom: 0.1rem solid ${props => props.theme.color.gray};
         
+        @media (max-width: 1200px) {
+            flex-direction: column;
+            gap: 4rem;
+            width: 80%;
+            text-align: center;
+        }
+
+        
         & div#caracteristics {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 120rem;
+            
+            @media (max-width: 1200px) {
+                flex-direction: column;
+                gap: 4rem;
+                width: 80%;
+            }
     
             & div {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 gap: 1.5rem;
+
             }
         }
     }
@@ -43,12 +58,29 @@ const StyledFooter = styled.div`
         width: 100rem;
         padding: 5rem 0;
 
+        @media (max-width: 1200px) {
+            width: auto;
+            gap: 4rem;
+            padding: 5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
         & > div {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
             gap:2rem
+             
+        }
+
+        @media (max-width: 1200px) {
+            & > div {
+                align-items: center;
+            }
+
         }
 
         & > div p {
@@ -64,6 +96,10 @@ const StyledFooter = styled.div`
             justify-content: center;
             align-items: flex-start;
             gap: 1rem;
+
+        @media (max-width: 1200px) {
+            align-items: center;
+        }
 
             & a {
                 font-size: ${props => props.theme.font_size.tiny};

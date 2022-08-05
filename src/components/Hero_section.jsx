@@ -13,9 +13,9 @@ const StyledHero = styled.div`
     z-index: -1;
     
     & Header {
-        position: fixed;
+        position: absolute;
         padding: 1.2rem 5.5rem;
-        z-index: 1;
+        z-index: 3;
     }
 
     & img {
@@ -53,11 +53,6 @@ const StyledHero = styled.div`
             right: 100%;
         }
 
-    }
-
-
-    & header {
-        z-index: 3;
     }
 
 `;

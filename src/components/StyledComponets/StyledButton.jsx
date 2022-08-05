@@ -12,6 +12,10 @@ export const StyledButtton = styled.button`
     border: 0;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    
+    @media (max-width: 600px) {
+        padding: 1rem 2rem;
+    }
 
     &:hover {
         background-color: ${props => props.theme.color.dark_purple};

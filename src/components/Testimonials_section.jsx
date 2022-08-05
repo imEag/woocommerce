@@ -35,11 +35,9 @@ const StyledTestimonials = styled.div`
     & > img {
         position: absolute;
         z-index: 2;
-
-        @media (max-width: 1200px) {
-        }
+        transition: all 0.5s ease-in-out;
     }
-    
+
     & img#person1 {
         top: 35%;
         left: 15%;
@@ -129,7 +127,6 @@ const StyledTestimonials = styled.div`
             background-color: #f4f8ff;
             border-radius: 0 0 2rem 2rem;
             box-shadow: 0px 18px 52.85371780395508px 0px #D7E4F980;
-
         }
         
         & div#back2 {
@@ -139,8 +136,15 @@ const StyledTestimonials = styled.div`
             background-color: #eef2fb;
             border-radius: 0 0 2rem 2rem;
         }
-    }
 
+        & div#arrowContainer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 2rem;
+            padding: 1rem 6rem;
+        }
+    }
 `;
 
 const Card = styled.article`
@@ -184,6 +188,10 @@ export const Testimonials = () => {
                 <div id="back1">
                 </div>
                 <div id="back2">
+                </div>
+                <div id="arrowContainer">
+                    <img id="unactiveArrow" src={unactiveArrow} alt="arrow" />
+                    <img id="activeArrow" src={activeArrow} alt="arrow" />
                 </div>
             </div>
             <img id="person1" src={person1} alt="person" />

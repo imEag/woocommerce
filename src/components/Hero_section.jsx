@@ -35,6 +35,10 @@ const StyledHero = styled.div`
         top: 18rem;
     }
 
+    & header {
+        z-index: 3;
+    }
+
 `;
 
 const StyledParagraph = styled.div`

@@ -11,6 +11,11 @@ const StyledHero = styled.div`
     height: 118.8rem;
     width: 100vw;
     z-index: -1;
+    height: 95rem;
+
+    @media (max-width: 700px) {
+        height: 90rem;
+    }
     
     & Header {
         position: absolute;
@@ -31,6 +36,9 @@ const StyledHero = styled.div`
         position: absolute;
         top: 0;
         right: 0;
+        @media (max-width: 1200px) {
+            height: 70rem;
+        }
     }
 
     & > img#featured {

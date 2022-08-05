@@ -30,6 +30,12 @@ const StyledTestimonials = styled.div`
         color: ${props => props.theme.color.dark_blue};
         font-size: ${props => props.theme.font_size.bigger};
         text-align: center;
+
+
+        @media (max-width: 600px) {
+            font-size: ${props => props.theme.font_size.big};
+            line-height: 4.5rem;
+        }
     }
 
     & > img {
@@ -53,7 +59,7 @@ const StyledTestimonials = styled.div`
 
         @media (max-width: 1200px) {
             top: -10%;
-            left: 45%;
+            left: 38%;
         }
     }
     & img#person3 {
@@ -63,6 +69,11 @@ const StyledTestimonials = styled.div`
         @media (max-width: 1200px) {
             top: 2%;
             left: 70%;
+        }
+
+        @media (max-width: 600px) {
+            top: 2%;
+            left: 55%;
         }
     }
 
@@ -156,6 +167,10 @@ const Card = styled.article`
     position: relative;
     z-index: 0;
 
+    @media (max-width: 600px) {
+        padding: 8rem 6rem 3rem 6rem;
+    }
+
     & img#quote {
         position: absolute;
         left: 50%;
@@ -172,6 +187,11 @@ const Card = styled.article`
         font-weight: 400;
         line-height: 4rem;
         z-index: 2;
+
+        @media (max-width: 600px) {
+            font-size: ${props => props.theme.font_size.small};
+            line-height: 2.5rem;
+        }
     }
 
 `;

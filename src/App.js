@@ -36,13 +36,19 @@ const theme = {
   }
 }
 
+const StyledApp = styled.div`
+  
+`;
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Hero></Hero>
-      <Testimonials></Testimonials>
-      <People></People>
-      <Footer></Footer>
+      <StyledApp>
+        <Hero></Hero>
+        <Testimonials id="testimonials"></Testimonials>
+        <People></People>
+        <Footer></Footer>
+      </StyledApp>
     </ThemeProvider>
   );
 }

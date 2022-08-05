@@ -46,10 +46,6 @@ const StyledHero = styled.div`
         }
 
         @media (max-width: 1400px) {
-            top: 85rem;
-        }
-
-        @media (max-width: 700px) {
             right: 100%;
         }
 

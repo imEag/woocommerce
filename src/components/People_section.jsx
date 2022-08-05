@@ -13,7 +13,7 @@ const StyledPeople = styled.div`
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
-    margin: 20rem 0;
+    margin: 15rem 0;
 
 
     & div#textContainer {

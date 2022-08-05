@@ -187,6 +187,7 @@ const Card = styled.article`
         font-weight: 400;
         line-height: 4rem;
         z-index: 2;
+        font-weight: 500;
 
         @media (max-width: 600px) {
             font-size: ${props => props.theme.font_size.small};

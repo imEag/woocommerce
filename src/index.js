@@ -9,6 +9,14 @@ import reportWebVitals from './reportWebVitals';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Manage } from './components/manage';
 
+/* Apollo */
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://rickandmortygenerator.site/woocommerce',
+  cache: new InMemoryCache(),
+});
+
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 62.5%;
@@ -67,14 +75,16 @@ const theme = {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>      <Routes>
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>      <Routes>
         <Route path="/" element={<App />} />
         <Route path="/manage" element={<Manage />} />
       </Routes>
-    </ThemeProvider>
-  </BrowserRouter>
+      </ThemeProvider>
+    </BrowserRouter>
+  </ApolloProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

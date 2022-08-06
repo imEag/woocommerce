@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { Header } from "./Header";
 import { StyledButtton } from "./StyledComponets/StyledButton";
 import { Footer } from './Footer_section'
+
+import { useMutation, useQuery } from "@apollo/client";
+import { GET_TESTIMONIALS } from "../queries/getTestimonials";
+
 
 const StyledManage = styled.div`
     background: linear-gradient(180deg, #E5EFFF 0%, rgba(229, 239, 255, 0.262661) 83.7%, rgba(229, 239, 255, 0) 100%);
@@ -46,6 +50,19 @@ const StyledManage = styled.div`
             @media (max-width: 500px) {
                 grid-template-columns: repeat(1, 1fr);
             }
+        }
+    }
+
+    & div#pagebuttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: flex-end;
+        gap: 2rem;
+    
+        & button#next, & button#prev {
+            background-color: gray;
+            padding: .5rem 1.5rem;
         }
     }
 
@@ -98,6 +115,21 @@ const Card = styled.article`
 `;
 
 export const Manage = () => {
+
+    const { error, loading, data, refetch } = useQuery(GET_TESTIMONIALS, { variables: { page: 1 } });
+
+    const nextPage = () => {
+        if ( data.testimonials.info.next != null) {
+            refetch({ page: data.testimonials.info.next});
+        }
+    }
+
+    const prevPage = () => {
+        if ( data.testimonials.info.prev != null) {
+            refetch({ page: data.testimonials.info.prev});
+        }
+    }
+
     return (
         <StyledManage>
             <Header></Header>
@@ -105,35 +137,23 @@ export const Manage = () => {
             <div id="testimonials">
                 <h3>Testimonials</h3>
                 <div id="testimonial_container">
-                    <Card>
-                        <p>No other eCommerce platform allows people to start for free and grow their store as their business grows. More importantly, WooCommerce doesn't charge you a portion of your profits as your business grows!</p>
-                        <div id="buttons">
-                            <StyledButtton id="editButton">Edit</StyledButtton>
-                            <StyledButtton id="deleteButton">Delete</StyledButtton>
-                        </div>
-                    </Card>
-                    <Card>
-                        <p>No other eCommerce platform allows people to start for free and grow their store as their business grows. More importantly, WooCommerce doesn't charge you a portion of your profits as your business grows!</p>
-                        <div id="buttons">
-                            <StyledButtton id="editButton">Edit</StyledButtton>
-                            <StyledButtton id="deleteButton">Delete</StyledButtton>
-                        </div>
-                    </Card>
-                    <Card>
-                        <p>No other eCommerce platform allows people to start for free and grow their store as their business grows. More importantly, WooCommerce doesn't charge you a portion of your profits as your business grows!</p>
-                        <div id="buttons">
-                            <StyledButtton id="editButton">Edit</StyledButtton>
-                            <StyledButtton id="deleteButton">Delete</StyledButtton>
-                        </div>
-                    </Card>
-                    <Card>
-                        <p>No other eCommerce platform allows people to start for free and grow their store as their business grows. More importantly, WooCommerce doesn't charge you a portion of your profits as your business grows!</p>
-                        <div id="buttons">
-                            <StyledButtton id="editButton">Edit</StyledButtton>
-                            <StyledButtton id="deleteButton">Delete</StyledButtton>
-                        </div>
-                    </Card>
-                    
+                    {console.log(data)}
+                    {data?.testimonials.results.map((element) => {
+                        return (
+                            <Card key={element.id}>
+                                <p>{element.content}</p>
+                                <div id="buttons">
+                                    <StyledButtton id="editButton">Edit</StyledButtton>
+                                    <StyledButtton id="deleteButton">Delete</StyledButtton>
+                                </div>
+                            </Card>
+                        ); 
+                    })}
+
+                </div>
+                <div id="pagebuttons">
+                    <StyledButtton id="prev" onClick={() => prevPage()}>Previous Page</StyledButtton>
+                    <StyledButtton id="next" onClick={() => nextPage()}>Next Page</StyledButtton>
                 </div>
                 <StyledButtton id="createButton">Create new testimonial</StyledButtton>
             </div>

@@ -79,9 +79,10 @@ const theme = {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
-    <BrowserRouter>
+    <BrowserRouter basename='/woocommerce'>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>      <Routes>
+      <ThemeProvider theme={theme}>      
+      <Routes>
         <Route path="/" element={<App />} />
         <Route path="/manage" element={<Manage />} />
         <Route path="/edit/:id" element={<EditTestimonial />} />

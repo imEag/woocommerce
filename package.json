@@ -1,8 +1,8 @@
 {
   "name": "woocommerce",
   "version": "1.0.0",
-  "homepage": "https://imeag.github.io/woocommerce",
-  "private": true,
+  "homepage": "https://imeag.github.io/woocommerce/",
+  "private": false,
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@testing-library/jest-dom": "^5.16.4",

@@ -8,6 +8,7 @@ import { Footer } from './Footer_section'
 
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_TESTIMONIALS } from "../queries/getTestimonials";
+import { DELETE_TESTIMONIAL } from "../queries/deleteTestimonial";
 
 
 const StyledManage = styled.div`
@@ -117,27 +118,48 @@ const Card = styled.article`
 export const Manage = () => {
 
     const { error, loading, data, refetch } = useQuery(GET_TESTIMONIALS, { variables: { page: 1 } });
+    const [deleteTestimonial] = useMutation(DELETE_TESTIMONIAL);
 
     const nextPage = () => {
-        if ( data.testimonials.info.next != null) {
-            refetch({ page: data.testimonials.info.next});
+        if (data.testimonials.info.next != null) {
+            refetch({ page: data.testimonials.info.next });
             scrollToTop();
         }
     }
 
     const prevPage = () => {
-        if ( data.testimonials.info.prev != null) {
-            refetch({ page: data.testimonials.info.prev});
+        if (data.testimonials.info.prev != null) {
+            refetch({ page: data.testimonials.info.prev });
             scrollToTop();
         }
     }
 
     const scrollToTop = () => {
         window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
+            top: 0,
+            behavior: 'smooth',
         });
-      };
+    };
+
+    const handleDelete = (id) => {
+        console.log(id)
+        deleteTestimonial({ variables: { id } })
+            .then(res => showConfirmation("Testimonial Deleted"))
+            .catch(err => showError("error while deleting"));
+        refetch();
+    }
+
+    const handleEdit = (id) => {
+        console.log(id)
+    }
+
+    const showConfirmation = (message) => {
+        console.log(message);
+    }
+
+    const showError= (message) => {
+        console.log(message);
+    }
 
     return (
         <StyledManage>
@@ -152,11 +174,11 @@ export const Manage = () => {
                             <Card key={element.id}>
                                 <p>{element.content}</p>
                                 <div id="buttons">
-                                    <StyledButtton id="editButton">Edit</StyledButtton>
-                                    <StyledButtton id="deleteButton">Delete</StyledButtton>
+                                    <StyledButtton onClick={() => handleEdit(element.id)} id="editButton">Edit</StyledButtton>
+                                    <StyledButtton onClick={() => handleDelete(element.id)} id="deleteButton">Delete</StyledButtton>
                                 </div>
                             </Card>
-                        ); 
+                        );
                     })}
 
                 </div>

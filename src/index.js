@@ -5,9 +5,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { EditTestimonial } from './components/Edit_testimonial.jsx';
+import { CreateTestimonial } from './components/Create_testimonial';
+import { Manage } from './components/manage';
+
 // Styled components
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { Manage } from './components/manage';
 
 /* Apollo */
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
@@ -81,6 +84,8 @@ root.render(
       <ThemeProvider theme={theme}>      <Routes>
         <Route path="/" element={<App />} />
         <Route path="/manage" element={<Manage />} />
+        <Route path="/edit" element={<EditTestimonial />} />
+        <Route path="/create" element={<CreateTestimonial />} />
       </Routes>
       </ThemeProvider>
     </BrowserRouter>

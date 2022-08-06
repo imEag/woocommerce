@@ -174,7 +174,7 @@ export const Manage = () => {
                             <Card key={element.id}>
                                 <p>{element.content}</p>
                                 <div id="buttons">
-                                    <StyledButtton onClick={() => handleEdit(element.id)} id="editButton">Edit</StyledButtton>
+                                    <Link to="/edit"><StyledButtton onClick={() => handleEdit(element.id)} id="editButton">Edit</StyledButtton></Link>
                                     <StyledButtton onClick={() => handleDelete(element.id)} id="deleteButton">Delete</StyledButtton>
                                 </div>
                             </Card>
@@ -186,7 +186,7 @@ export const Manage = () => {
                     <StyledButtton id="prev" onClick={() => prevPage()}>Previous Page</StyledButtton>
                     <StyledButtton id="next" onClick={() => nextPage()}>Next Page</StyledButtton>
                 </div>
-                <StyledButtton id="createButton">Create new testimonial</StyledButtton>
+                <Link to="/create"><StyledButtton id="createButton">Create new testimonial</StyledButtton></Link>
             </div>
             <Footer />
         </StyledManage>

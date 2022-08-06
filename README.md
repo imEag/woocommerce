@@ -1,5 +1,5 @@
 # woocommerce
-woocommerce is a beutiful and responsive web app that shows the information about a eCommerce company.
+woocommerce is a beutiful and responsive web app that shows the information about an eCommerce company.
 
 ## [Use the app here](https://imeag.github.io/woocommerce/)
 

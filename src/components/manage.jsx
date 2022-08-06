@@ -121,14 +121,23 @@ export const Manage = () => {
     const nextPage = () => {
         if ( data.testimonials.info.next != null) {
             refetch({ page: data.testimonials.info.next});
+            scrollToTop();
         }
     }
 
     const prevPage = () => {
         if ( data.testimonials.info.prev != null) {
             refetch({ page: data.testimonials.info.prev});
+            scrollToTop();
         }
     }
+
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      };
 
     return (
         <StyledManage>
@@ -137,7 +146,7 @@ export const Manage = () => {
             <div id="testimonials">
                 <h3>Testimonials</h3>
                 <div id="testimonial_container">
-                    {console.log(data)}
+                    {/* {console.log(data)} */}
                     {data?.testimonials.results.map((element) => {
                         return (
                             <Card key={element.id}>

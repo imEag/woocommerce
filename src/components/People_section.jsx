@@ -4,11 +4,7 @@ import { StyledButtton } from "./StyledComponets/StyledButton";
 
 import people from '../assets/img/persons/people.png';
 import rectangle235 from '../assets/ui/rectangle235.png';
-/* import ellipse1 from '../assets/ui/Ellipse1';
-import ellipse2 from '../assets/ui/Ellipse2';
-import ellipse3 from '../assets/ui/Ellipse3';
-import greenPoints from '../assets/ui/greenpoints2.png';
-import redPoints from '../assets/ui/redpoints2.png'; */
+
 
 const StyledPeople = styled.div`
     display: flex;

@@ -155,6 +155,7 @@ const Mobile = styled.nav`
 
 export const Header = () => {
 
+    // true if mobile menu is open
     const [mobileOpen, setMobileOpen] = useState(false);
 
     return (

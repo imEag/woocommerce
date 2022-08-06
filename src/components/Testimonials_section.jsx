@@ -209,16 +209,21 @@ const Card = styled.article`
 
 export const Testimonials = () => {
 
+    // get page 1 of testimonials, can be re suedwith refetch()
     const { data } = useQuery(GET_TESTIMONIALS, { variables: { page: 1 } });
+
+    //counter to step through testimonials
     const [counter, setCounter] = useState(0);
 
     const nextTestimonial = () => {
+        // steps to next testimonial if there is one more at leats 
         if (data.testimonials.results[counter+1]) {
             setCounter(counter+1)
         }
     };
 
     const prevTestimonial = () => {
+        // steps to previous testimonial if there is one more at leats 
         if (data.testimonials.results[counter-1]) {
             setCounter(counter-1)
         }

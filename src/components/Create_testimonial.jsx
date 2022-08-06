@@ -82,9 +82,11 @@ export const CreateTestimonial = () => {
 
     const [createTestimonialMutation] = useMutation(CREATE_TESTIMONIAL);
 
+    // stores testimonial's content
     const [content, setContent] = useState('');
 
     const handleSubmit = (evt) => {
+        //creates a new testimonial and saves it in Backend
         evt.preventDefault();
 
         createTestimonialMutation({ variables: { content } })
@@ -111,8 +113,6 @@ export const CreateTestimonial = () => {
                     <div id="contentContainer">
                         <label htmlFor="content">Content</label>
                         <textarea type="textarea" name="content" value={content} onChange={evt => setContent(evt.target.value)} placeholder="Testimonial content" />
-                        {/* <label htmlFor="date">Date (not available)</label>
-                        <input disabled={true} type="text" name="date" placeholder="date" /> */}
                     </div>
                     <StyledButtton id="submit">Create</StyledButtton>
                 </form>

@@ -83,20 +83,25 @@ const StyledCreate = styled.div`
 
 export const EditTestimonial = () => {
 
+    // get id from url
     const { id } = useParams();
 
-    const { error, loading, data } = useQuery(GET_TESTIMONIAL, { variables: { id: id } });
+    //Gets testimonial to be edited
+    const { data } = useQuery(GET_TESTIMONIAL, { variables: { id: id } });
+    
     const [updateTestimonial] = useMutation(UPDATE_TESTIMONIAL);
 
     const [content, setContent] = useState('');
 
     useEffect(() => {
+        //Store testimonial's data into content state
         if (data) {
             setContent(data.testimonial.content);
         }
     }, [data]);
 
     const handleSubmit = (evt) => {
+        //updates testimonial in backend
         evt.preventDefault();
         console.log(evt)
         updateTestimonial({ variables: { id, content } })
@@ -122,8 +127,6 @@ export const EditTestimonial = () => {
                     <div id="contentContainer">
                         <label htmlFor="content">Content</label>
                         <textarea type="textarea" name="content" value={content} onChange={evt => setContent(evt.target.value)} placeholder="Testimonial content" />
-                        {/* <label htmlFor="date">Date</label>
-                        <input disabled={true} type="text" value={content} name="date" placeholder="date" /> */}
                     </div>
                     <StyledButtton id="submit">Edit</StyledButtton>
                 </form>

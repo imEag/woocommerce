@@ -150,6 +150,7 @@ export const Hero = () => {
                 </div>
             </StyledParagraph>
 
+            {/* Background images */}
             <img id="w" src={w} alt="w" />
 
             <img id="featured" src={featured_img} alt="featured_image" />

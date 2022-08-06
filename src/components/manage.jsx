@@ -117,10 +117,13 @@ const Card = styled.article`
 
 export const Manage = () => {
 
-    const { error, loading, data, refetch } = useQuery(GET_TESTIMONIALS, { variables: { page: 1 } });
+    // gets page 1 of testimonials, can be refetched using refetch()
+    const { data, refetch } = useQuery(GET_TESTIMONIALS, { variables: { page: 1 } });
+
     const [deleteTestimonial] = useMutation(DELETE_TESTIMONIAL);
 
     const nextPage = () => {
+        // fetches the next page if available
         if (data.testimonials.info.next != null) {
             refetch({ page: data.testimonials.info.next });
             scrollToTop();
@@ -128,6 +131,7 @@ export const Manage = () => {
     }
 
     const prevPage = () => {
+        // fetches the previous page if available
         if (data.testimonials.info.prev != null) {
             refetch({ page: data.testimonials.info.prev });
             scrollToTop();
@@ -142,13 +146,11 @@ export const Manage = () => {
     };
 
     const handleDelete = (id) => {
+        // delete given testimonial in backend
         deleteTestimonial({ variables: { id } })
             .then(res => showConfirmation("Testimonial Deleted"))
             .catch(err => showError("error while deleting"));
         refetch();
-    }
-
-    const handleEdit = (id) => {
     }
 
     const showConfirmation = (message) => {

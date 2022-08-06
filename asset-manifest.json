@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/woocommerce/static/css/main.073c9b0a.css",
+    "main.js": "/woocommerce/static/js/main.cf02cd42.js",
+    "static/js/787.fbb784d3.chunk.js": "/woocommerce/static/js/787.fbb784d3.chunk.js",
+    "static/media/featured-image.png": "/woocommerce/static/media/featured-image.3d9cff30e8de2de30d14.png",
+    "static/media/people.png": "/woocommerce/static/media/people.75ea7fe1f89b15cef709.png",
+    "static/media/rectangle235.png": "/woocommerce/static/media/rectangle235.6a527280ac0ed9799b5e.png",
+    "static/media/person4.png": "/woocommerce/static/media/person4.b3807182afe4395e1401.png",
+    "static/media/person2.png": "/woocommerce/static/media/person2.240d33336c5e51266137.png",
+    "static/media/person3.png": "/woocommerce/static/media/person3.323f0ae627d34c4c8cad.png",
+    "static/media/w.png": "/woocommerce/static/media/w.ef4b14fe2b407dd65de8.png",
+    "static/media/person6.png": "/woocommerce/static/media/person6.2045bd01b9f1de9e7370.png",
+    "static/media/person5.png": "/woocommerce/static/media/person5.220ae82e44b5c15327b9.png",
+    "static/media/person1.png": "/woocommerce/static/media/person1.e94329f26dfbb05ac1f5.png",
+    "index.html": "/woocommerce/index.html",
+    "main.073c9b0a.css.map": "/woocommerce/static/css/main.073c9b0a.css.map",
+    "main.cf02cd42.js.map": "/woocommerce/static/js/main.cf02cd42.js.map",
+    "787.fbb784d3.chunk.js.map": "/woocommerce/static/js/787.fbb784d3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.cf02cd42.js"
+  ]
+}

@@ -84,7 +84,7 @@ root.render(
       <ThemeProvider theme={theme}>      <Routes>
         <Route path="/" element={<App />} />
         <Route path="/manage" element={<Manage />} />
-        <Route path="/edit" element={<EditTestimonial />} />
+        <Route path="/edit/:id" element={<EditTestimonial />} />
         <Route path="/create" element={<CreateTestimonial />} />
       </Routes>
       </ThemeProvider>

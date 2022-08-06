@@ -174,7 +174,7 @@ export const Manage = () => {
                             <Card key={element.id}>
                                 <p>{element.content}</p>
                                 <div id="buttons">
-                                    <Link to="/edit"><StyledButtton onClick={() => handleEdit(element.id)} id="editButton">Edit</StyledButtton></Link>
+                                    <Link to={'/edit/'+element.id}><StyledButtton onClick={() => handleEdit(element.id)} id="editButton">Edit</StyledButtton></Link>
                                     <StyledButtton onClick={() => handleDelete(element.id)} id="deleteButton">Delete</StyledButtton>
                                 </div>
                             </Card>

@@ -142,7 +142,6 @@ export const Manage = () => {
     };
 
     const handleDelete = (id) => {
-        console.log(id)
         deleteTestimonial({ variables: { id } })
             .then(res => showConfirmation("Testimonial Deleted"))
             .catch(err => showError("error while deleting"));
@@ -150,7 +149,6 @@ export const Manage = () => {
     }
 
     const handleEdit = (id) => {
-        console.log(id)
     }
 
     const showConfirmation = (message) => {

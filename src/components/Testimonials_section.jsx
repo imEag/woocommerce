@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+
+import { useQuery } from "@apollo/client";
+import { GET_TESTIMONIALS } from "../queries/getTestimonials";
 
 import quoteImg from '../assets/img/quote.png';
 import person1 from '../assets/img/persons/person1.png';
@@ -14,6 +17,7 @@ import unactiveArrow from '../assets/ui/unactivearrow.png';
 import activeArrow from '../assets/ui/activearrow.png'
 
 
+
 const StyledTestimonials = styled.div`
     background: linear-gradient(180deg, rgba(236, 240, 253, 0) 0%, rgba(236, 240, 253, 0.53) 14.32%, #ECF0FD 45.83%, rgba(236, 240, 253, 0.43) 84.33%, rgba(236, 240, 253, 0) 100%);
     display: flex;
@@ -22,7 +26,6 @@ const StyledTestimonials = styled.div`
     align-items: center;
     gap: 10rem;
     position: relative;
-    z-index: -6;
     padding: 13rem 4rem 33rem 4rem;
 
     & h2 {
@@ -154,12 +157,16 @@ const StyledTestimonials = styled.div`
             align-items: center;
             gap: 2rem;
             padding: 1rem 6rem;
+
+            & img {
+                cursor: pointer;
+            }
         }
     }
 `;
 
 const Card = styled.article`
-    max-width: 73rem;
+    width: 73rem;
     min-height: 40rem;
     background-color: white;
     padding: 10rem 8rem 9rem 8rem;
@@ -167,8 +174,11 @@ const Card = styled.article`
     position: relative;
     z-index: 0;
 
-    @media (max-width: 600px) {
-        padding: 8rem 6rem 3rem 6rem;
+    @media (max-width: 800px) {
+        padding: 6rem 2rem;
+        width: 30rem;
+        margin: 0 auto;
+        min-height: 30rem;
     }
 
     & img#quote {
@@ -198,21 +208,37 @@ const Card = styled.article`
 `;
 
 export const Testimonials = () => {
+
+    const { error, loading, data, refetch } = useQuery(GET_TESTIMONIALS, { variables: { page: 1 } });
+    const [counter, setCounter] = useState(0);
+
+    const nextTestimonial = () => {
+        if (data.testimonials.results[counter+1]) {
+            setCounter(counter+1)
+        }
+    };
+
+    const prevTestimonial = () => {
+        if (data.testimonials.results[counter-1]) {
+            setCounter(counter-1)
+        }
+    };
+
     return (
         <StyledTestimonials>
             <h2>Trusted by Agencies<br />& Store Owners</h2>
             <div id="cards">
                 <Card>
                     <img src={quoteImg} alt="quote img" id="quote" />
-                    <p>No other eCommerce platform allows people to start for free and grow their store as their business grows. More importantly, WooCommerce doesn't charge you a portion of your profits as your business grows!</p>
+                    <p>{data ? data.testimonials.results[counter].content : "Unknown"}</p>
                 </Card>
                 <div id="back1">
                 </div>
                 <div id="back2">
                 </div>
-                <div id="arrowContainer">
-                    <img id="unactiveArrow" src={unactiveArrow} alt="arrow" />
-                    <img id="activeArrow" src={activeArrow} alt="arrow" />
+                <div id="arrowContainer" >
+                    <img id="unactiveArrow" src={unactiveArrow} alt="arrow" onClick={() => prevTestimonial()}/>
+                    <img id="activeArrow" src={activeArrow} alt="arrow" onClick={() => nextTestimonial()}></img>
                 </div>
             </div>
             <img id="person1" src={person1} alt="person" />

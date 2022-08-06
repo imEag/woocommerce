@@ -20,7 +20,6 @@ woocommerce is a beutiful and responsive web app that shows the information abou
 ## Screenshots
 
 ![App Screenshot](https://i.ibb.co/sb9JGqW/imeag-github-io-woocommerce-full-HD.png)
-![App Screenshot](https://i.ibb.co/Bq9y61s/imeag-github-io-woocommerce-full-HD-6.png)
 ![App Screenshot](https://i.ibb.co/T06nF04/imeag-github-io-woocommerce-full-HD-2.png)
 ![App Screenshot](https://i.ibb.co/1Rr9W4s/imeag-github-io-woocommerce-full-HD-3.png)
 

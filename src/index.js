@@ -10,7 +10,7 @@ import { CreateTestimonial } from './components/Create_testimonial';
 import { Manage } from './components/manage';
 
 // Styled components
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 /* Apollo */
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';

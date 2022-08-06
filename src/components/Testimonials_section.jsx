@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { useQuery } from "@apollo/client";
@@ -209,7 +209,7 @@ const Card = styled.article`
 
 export const Testimonials = () => {
 
-    const { error, loading, data, refetch } = useQuery(GET_TESTIMONIALS, { variables: { page: 1 } });
+    const { data } = useQuery(GET_TESTIMONIALS, { variables: { page: 1 } });
     const [counter, setCounter] = useState(0);
 
     const nextTestimonial = () => {

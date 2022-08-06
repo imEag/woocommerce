@@ -90,6 +90,8 @@ export const CreateTestimonial = () => {
         createTestimonialMutation({ variables: { content } })
             .then(res => showConfirmation("Testimonial Created"))
             .catch(err => showError("Error while creating"));
+
+            setContent('');
     };
 
     const showConfirmation = (message) => {

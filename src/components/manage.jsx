@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -174,7 +174,7 @@ export const Manage = () => {
                             <Card key={element.id}>
                                 <p>{element.content}</p>
                                 <div id="buttons">
-                                    <Link to={'/edit/'+element.id}><StyledButtton onClick={() => handleEdit(element.id)} id="editButton">Edit</StyledButtton></Link>
+                                    <Link to={'/edit/'+element.id}><StyledButtton id="editButton">Edit</StyledButtton></Link>
                                     <StyledButtton onClick={() => handleDelete(element.id)} id="deleteButton">Delete</StyledButtton>
                                 </div>
                             </Card>
